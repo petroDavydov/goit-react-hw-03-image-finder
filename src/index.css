@@ -20,6 +20,12 @@ body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  text-align: center;
+  min-height: 100vh;
+  background-size: 100%;
 }
 
 img {
