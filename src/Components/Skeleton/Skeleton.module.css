@@ -6,8 +6,8 @@
 
 .spanError {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 40px;
-  font-weight: 600;
-  color: green;
+  font-size: 50px;
+  font-weight: 800;
+  color: #000;
   text-align: center;
 }

@@ -30,7 +30,7 @@ class App extends Component {
     page: 1,
     searchQuery: '',
     showModal: false,
-    loadingSpiner: false,
+    loadingSpinner: false,
     pixabayImages: [],
     largeImages: {},
   };
@@ -40,13 +40,13 @@ class App extends Component {
     if (searchQuery !== prevState.searchQuery) {
       this.fetchImagePbay()
         .catch(error => console.log(error))
-        .finally(() => this.setState({ loadingSpiner: false }));
+        .finally(() => this.setState({ loadingSpinner: false }));
     }
   }
 
   fetchImagePbay = () => {
     const { searchQuery, page } = this.state;
-    this.setState({ loadingSpiner: true });
+    this.setState({ loadingSpinner: true });
     return fetchImage(searchQuery, page).then(pixabayImages => {
       this.setState(prevState => ({
         pixabayImages: [...prevState.pixabayImages, ...pixabayImages],
@@ -56,13 +56,13 @@ class App extends Component {
   };
 
   handleLoadMoreClick = () => {
-    this.setState({ loadingSpiner: true });
+    this.setState({ loadingSpinner: true });
     this.fetchImagePbay()
       .then(() => {
         scrollToTarget();
       })
       .catch(error => console.log(error))
-      .finally(() => this.setState({ loadingSpiner: false }));
+      .finally(() => this.setState({ loadingSpinner: false }));
   };
 
   handleFormSubmit = searchQuery => {
@@ -79,16 +79,21 @@ class App extends Component {
     }));
   };
 
-  clickImages = largeImage => {
+  ClickImages = largeImage => {
     this.setState({ largeImage });
     this.toggleModal();
   };
 
   render() {
-    const { showModal, searchQuery, pixabayImages, loadingSpiner, largeImage } =
-      this.state;
+    const {
+      showModal,
+      searchQuery,
+      pixabayImages,
+      loadingSpinner,
+      largeImage,
+    } = this.state;
 
-    const { toggleModal, handleFormSubmit, clickImages, handleLoadMoreClick } =
+    const { toggleModal, handleFormSubmit, ClickImages, handleLoadMoreClick } =
       this;
 
     return (
@@ -97,11 +102,12 @@ class App extends Component {
         <Searchbar onSubmit={handleFormSubmit} />
         <Container>
           {pixabayImages.length !== 0 ? (
-            <ImageGallery onModal={clickImages} pixabayImages={pixabayImages} />
+            <ImageGallery onModal={ClickImages} pixabayImages={pixabayImages} />
           ) : (
             searchQuery !== '' && <Skeleton />
           )}
-          {loadingSpiner && <LoaderTriangle />}
+
+          {loadingSpinner && <LoaderTriangle />}
 
           {pixabayImages.length !== 0 && (
             <Button onClick={handleLoadMoreClick} />
@@ -109,7 +115,7 @@ class App extends Component {
 
           {showModal && (
             <Modal onModal={toggleModal}>
-              {loadingSpiner && <LoaderTriangle />}
+              {loadingSpinner && <LoaderTriangle />}
               <img src={largeImage.largeImageURL} alt={largeImage.tags} />
             </Modal>
           )}

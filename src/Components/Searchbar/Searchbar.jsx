@@ -3,7 +3,7 @@ import s from './Searchbar.module.css';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
-export default class Searchbar extends Component {
+class Searchbar extends Component {
   state = {
     searchQuery: '',
   };
@@ -19,30 +19,32 @@ export default class Searchbar extends Component {
     this.setState({ searchQuery: '' });
   };
 
-  handlNameChange = e => {
+  handleNameChange = e => {
     this.setState({ searchQuery: e.target.value.toLowerCase() });
   };
 
   render() {
     return (
-      <header className={s.Searchbar}>
-        <form className={s.SearchForm} onSubmit={this.handleSubmit}>
-          <button type="submit" className={s.SearchFormButton}>
-            <span className={s.SearchFormButtonLabel}>Search</span>
-          </button>
+      <>
+        <header className={s.Searchbar}>
+          <form className={s.SearchForm} onSubmit={this.handleSubmit}>
+            <button type="submit" className={s.SearchFormButton}>
+              <span className={s.SearchFormButtonLabel}>Search</span>
+            </button>
 
-          <input
-            className={s.SearchFormInput}
-            name="searchQuery"
-            type="text"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search images and photos"
-            value={this.searchQuery}
-            onChange={this.handlNameChange}
-          />
-        </form>
-      </header>
+            <input
+              className={s.SearchFormInput}
+              name="searchQuery"
+              type="text"
+              autoComplete="off"
+              autoFocus
+              placeholder="Search images and photos"
+              value={this.state.searchQuery}
+              onChange={this.handleNameChange}
+            />
+          </form>
+        </header>
+      </>
     );
   }
 }
@@ -50,3 +52,5 @@ export default class Searchbar extends Component {
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+
+export default Searchbar;

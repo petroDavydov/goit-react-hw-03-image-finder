@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import s from './Loader.module.css';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -6,7 +6,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 class LoaderTriangle extends Component {
   render() {
     return (
-      <div className={s.loaderTriangle}>
+      <div className={s.containerTriangle}>
         <Loader
           type="BallTriangle"
           color="#00BFFF"

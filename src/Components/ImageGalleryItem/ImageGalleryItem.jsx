@@ -1,10 +1,10 @@
 import s from './ImageGalleryItem.module.css';
 import PropTypes from 'prop-types';
-import defaultImge from '../../images/wetrytofindwhatyouwant.jpg';
+import defaultImage from '../../images/wetrytofindwhatyouwant.jpg';
 
-export default function ImageGalleryItem({
+function ImageGalleryItem({
   onModal,
-  webformatURL = defaultImge,
+  webformatURL = defaultImage,
   tags = 'photo',
   image,
 }) {
@@ -14,10 +14,10 @@ export default function ImageGalleryItem({
         <img
           src={webformatURL}
           alt={tags}
-          className={s.ImageGalleryItemImage}
           onClick={() => {
             onModal(image);
           }}
+          className={s.ImageGalleryItemImage}
         />
       </li>
     </>
@@ -27,3 +27,5 @@ export default function ImageGalleryItem({
 ImageGalleryItem.propTypes = {
   onModal: PropTypes.func.isRequired,
 };
+
+export default ImageGalleryItem;

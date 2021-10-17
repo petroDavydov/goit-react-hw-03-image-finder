@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './Button.module.css';
-// import { FcCancel } from "react-icons/fc";
 
-export default function Button({ onClick }) {
+function Button({ onClick }) {
   return (
     <>
       <button type="button" onClick={onClick} className={s.Button}>
@@ -12,6 +11,8 @@ export default function Button({ onClick }) {
   );
 }
 
-Button.ropTypes = {
+Button.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
+
+export default Button;

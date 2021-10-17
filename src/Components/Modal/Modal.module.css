@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(19, 18, 20, 0.9);
   z-index: 1200;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .ImCross {
-  color: lawngreen;
+  color: darkslategray;
   border-radius: 50%;
   width: 40px;
   height: 40px;

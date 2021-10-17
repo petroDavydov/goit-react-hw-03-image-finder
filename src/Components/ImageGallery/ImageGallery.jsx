@@ -3,7 +3,7 @@ import s from './ImageGallery.module.css';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import PropTypes from 'prop-types';
 
-export default function ImageGallery({ pixabayImages, onModal }) {
+function ImageGallery({ pixabayImages, onModal }) {
   return (
     <>
       <ul className={s.ImageGallery}>
@@ -31,3 +31,5 @@ ImageGallery.propTypes = {
     }),
   ),
 };
+
+export default ImageGallery;

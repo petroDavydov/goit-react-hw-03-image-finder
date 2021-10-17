@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './IconButton.module.css';
 
-const IconButton = ({ children, onClick, allyProps }) => {
+const IconButton = ({ children, onModal, allyProps }) => {
   return (
     <button
       type="button"
       className={s.IconButton}
-      onClick={onClick}
+      onClick={onModal}
       {...allyProps}
     >
       {children}
@@ -16,8 +16,13 @@ const IconButton = ({ children, onClick, allyProps }) => {
 };
 
 IconButton.defaultProps = {
-  onClick: () => null,
+  onModal: () => null,
   children: null,
+};
+
+IconButton.propTypes = {
+  onModal: PropTypes.func,
+  children: PropTypes.node,
   'aria-label': PropTypes.string.isRequired,
 };
 
