@@ -16,3 +16,10 @@
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
 }
+
+.ImCross {
+  color: lawngreen;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
