@@ -26,6 +26,9 @@ function ImageGalleryItem({
 
 ImageGalleryItem.propTypes = {
   onModal: PropTypes.func.isRequired,
+  webformatURL: PropTypes.string.isRequired,
+  tags: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default ImageGalleryItem;

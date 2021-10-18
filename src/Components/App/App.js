@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 // -----------------------------------------
 import LoaderTriangle from '../Loader/Loader';
 // -----------------------------------------
-import scrollToTarget from '../Scroll/Scroll';
+import scrollToTarget from '../utils/Scroll/Scroll';
 // -----------------------------------------
 import Button from '../Button/Button';
 // -----------------------------------------
