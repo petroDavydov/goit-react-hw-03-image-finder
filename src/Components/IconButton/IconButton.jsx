@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './IconButton.module.css';
 
-const IconButton = ({ children, onModal, allyProps }) => {
+const IconButton = ({ children, onModal, ...allyProps }) => {
   return (
     <button
       type="button"
